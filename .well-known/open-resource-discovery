@@ -1,0 +1,17 @@
+{
+  "$schema": "https://open-resource-discovery.org/spec-v1/interfaces/Configuration.schema.json",
+  "baseUrl": "REPLACE_WITH_YOUR_GITHUB_PAGES_URL",
+  "openResourceDiscoveryV1": {
+    "documents": [
+      {
+        "url": "/open-resource-discovery/v1/documents/bprelationship.json",
+        "perspective": "system-version",
+        "accessStrategies": [
+          {
+            "type": "open"
+          }
+        ]
+      }
+    ]
+  }
+}
