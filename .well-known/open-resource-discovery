@@ -1,6 +1,6 @@
 {
   "$schema": "https://open-resource-discovery.org/spec-v1/interfaces/Configuration.schema.json",
-  "baseUrl": "REPLACE_WITH_YOUR_GITHUB_PAGES_URL",
+  "baseUrl": "https://sreeja-annavarapu.github.io/ord-bprelationship",
   "openResourceDiscoveryV1": {
     "documents": [
       {

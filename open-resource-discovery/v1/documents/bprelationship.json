@@ -1,6 +1,7 @@
 {
   "$schema": "https://open-resource-discovery.org/spec-v1/interfaces/Document.schema.json",
   "openResourceDiscovery": "1.16",
+  "baseUrl": "https://sreeja-annavarapu.github.io/ord-bprelationship",
   "perspective": "system-version",
   "description": "ORD Document for SAP Quotation Management - Business Partner Relationship Management API",
   "policyLevels": ["sap:core:v1"],
