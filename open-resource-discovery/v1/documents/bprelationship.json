@@ -53,8 +53,8 @@
     {
       "ordId": "sap.bids:apiResource:API_BPRELATIONSHIP:v1",
       "title": "Business Partner Relationship Management API",
-      "shortDescription": "Read, create, update, and delete Business Partner linkages for supplier users",
-      "description": "This API enables external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). It supports full lifecycle management of BP linkages — creation, reading, updating, and deletion — along with bulk operations via OData batch processing and full export capability.\n\nKey capabilities:\n- Create a new supplier user record with one or more BP linkages in a single deep insert\n- Add BP linkages to existing supplier users\n- Read supplier user records with all linkages using $filter, $expand, $select, $orderby, $top, $skip\n- Update editable fields on BP linkages (name, logical system)\n- Delete individual linkages or complete user records with cascade delete\n- Bulk operations via OData $batch\n\nAudit trail (CreatedAt, CreatedBy, LastChangedAt, LastChangedBy) is automatically maintained by the system. All validations enforced in the UI app also apply to this API.",
+      "shortDescription": "Creates, reads, updates and deletes business partner relationships",
+      "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of the any business entity that it is mapped to.",
       "version": "1.0.0",
       "lastUpdate": "2026-06-30T00:00:00+00:00",
       "visibility": "public",
