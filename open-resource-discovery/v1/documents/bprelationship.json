@@ -16,7 +16,7 @@
       "ordId": "sap.bids:product:QuotationManagement:",
       "title": "SAP Quotation Management",
       "vendor": "sap:vendor:SAP:",
-      "shortDescription": "SAP Quotation Management (QTM) - Supplier Quotation and Business Partner Management"
+      "shortDescription": "SAP Quotation Management (QTM) - Supplier Managed Quotations"
     }
   ],
   "packages": [
@@ -24,7 +24,7 @@
       "ordId": "sap.bids:package:BPRelationshipManagement:v1",
       "title": "Business Partner Relationship Management",
       "shortDescription": "APIs for managing Business Partner linkages for supplier users in SAP Quotation Management",
-      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). Prior to the 2602 release, BP relationship maintenance was only possible through the QTM Fiori UI application. This API enables customers to automate creation, reading, updating, and deletion of BP linkages for integration with third-party systems, SAP IAS/IAM, and B2B portals.",
+      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). This API enables customers to automate creation, reading, updating, and deletion of BP linkages for integration with third-party systems, SAP IAS/IAM, and B2B portals.",
       "version": "1.0.0",
       "policyLevels": ["sap:core:v1"],
       "partOfProducts": ["sap.bids:product:QuotationManagement:"],
