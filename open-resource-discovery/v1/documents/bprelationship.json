@@ -3,20 +3,20 @@
   "openResourceDiscovery": "1.16",
   "baseUrl": "https://sreeja-annavarapu.github.io/ord-bprelationship",
   "perspective": "system-version",
-  "description": "ORD Document for SAP Quotation Management - Business Partner Relationship Management API",
+  "description": "ORD Document for SAP Quotation Management - Business Partner Relationship Management APIs",
   "policyLevels": ["sap:core:v1"],
   "describedSystemType": {
     "systemNamespace": "sap.bids"
   },
   "describedSystemVersion": {
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "products": [
     {
       "ordId": "sap.bids:product:QuotationManagement:",
       "title": "SAP Quotation Management",
       "vendor": "sap:vendor:SAP:",
-      "shortDescription": "SAP Quotation Management (QTM) - Supplier Managed Quotations"
+      "shortDescription": "SAP Quotation Management (QTM) - Supplier Quotation and Business Partner Management"
     }
   ],
   "packages": [
@@ -24,8 +24,8 @@
       "ordId": "sap.bids:package:BPRelationshipManagement:v1",
       "title": "Business Partner Relationship Management",
       "shortDescription": "APIs for managing Business Partner linkages for supplier users in SAP Quotation Management",
-      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). This API enables customers to automate creation, reading, updating, and deletion of BP linkages for integration with third-party systems, SAP IAS/IAM, and B2B portals.",
-      "version": "1.0.0",
+      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). It includes both Version 1 and Version 2.",
+      "version": "2.0.0",
       "policyLevels": ["sap:core:v1"],
       "partOfProducts": ["sap.bids:product:QuotationManagement:"],
       "vendor": "sap:vendor:SAP:",
@@ -36,27 +36,27 @@
         "Quotation Management",
         "BP Linkage"
       ],
-      "lineOfBusiness": ["Procurement"]
+      "lineOfBusiness": ["Sourcing & Procurement"]
     }
   ],
   "consumptionBundles": [
     {
       "ordId": "sap.bids:consumptionBundle:BPRelationshipBasicAuth:v1",
-      "title": "BP Relationship API - Basic Authentication",
-      "shortDescription": "Access bundle for BP Relationship Management API using Basic Authentication",
-      "description": "This Consumption Bundle provides access to the Business Partner Relationship Management OData V4 API using Basic Authentication via SAP BTP ABAP Environment Communication Arrangements. A Communication User must be configured in the target system via the Maintain Communication Users app.",
+      "title": "Business Partner Relationship API - Basic Authentication",
+      "shortDescription": "Access bundle for Business Partner Relationship Management APIs using Basic Authentication",
+      "description": "This Consumption Bundle provides access to the Business Partner Relationship Management OData V4 APIs using Basic Authentication via SAP BTP ABAP Environment Communication Arrangements.",
       "version": "1.0.0",
-      "lastUpdate": "2026-06-30T00:00:00+00:00"
+      "lastUpdate": "2026-07-30T00:00:00+00:00"
     }
   ],
   "apiResources": [
     {
       "ordId": "sap.bids:apiResource:API_BPRELATIONSHIP:v1",
-      "title": "Business Partner Relationship Management API",
-      "shortDescription": "Creates, reads, updates and deletes business partner relationships",
+      "title": "Business Partner Relationship (Version 1)",
+      "shortDescription": "Creates, reads, updates and deletes business partner relationships.",
       "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of the any business entity that it is mapped to.",
       "version": "1.0.0",
-      "lastUpdate": "2026-06-30T00:00:00+00:00",
+      "lastUpdate": "2026-07-30T00:00:00+00:00",
       "visibility": "public",
       "releaseStatus": "active",
       "partOfPackage": "sap.bids:package:BPRelationshipManagement:v1",
@@ -86,11 +86,52 @@
       "tags": [
         "Business Partner",
         "Supplier User",
-        "BP Linkage",
-        "OData V4",
-        "Procurement"
+        "OData V4"
       ],
-      "lineOfBusiness": ["Procurement"],
+      "lineOfBusiness": ["Sourcing & Procurement"],
+      "extensible": {
+        "supported": "no"
+      }
+    },
+    {
+      "ordId": "sap.bids:apiResource:API_SUPPLIERBPASSIGN:v1",
+      "title": "Business Partner Relationship (Version 2)",
+      "shortDescription": "Creates, reads, updates and deletes business partner relationships.",
+      "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of the any business entity that it is mapped to. Supports creating user records without linkages.",
+      "version": "1.0.0",
+      "lastUpdate": "2026-07-30T00:00:00+00:00",
+      "visibility": "public",
+      "releaseStatus": "active",
+      "partOfPackage": "sap.bids:package:BPRelationshipManagement:v1",
+      "partOfConsumptionBundles": [
+        {
+          "ordId": "sap.bids:consumptionBundle:BPRelationshipBasicAuth:v1"
+        }
+      ],
+      "apiProtocol": "odata-v4",
+      "resourceDefinitions": [
+        {
+          "type": "edmx",
+          "mediaType": "application/xml",
+          "url": "/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.edmx",
+          "visibility": "public",
+          "accessStrategies": [
+            {
+              "type": "open"
+            }
+          ]
+        }
+      ],
+      "entryPoints": [
+        "https://aaca1993-f806-4e9a-b93a-9eee2d600a8f.abap.eu10.hana.ondemand.com/sap/opu/odata4/bids/api_supplierbpassign/srvd_a2x/bids/api_supplierbpassign/0001/"
+      ],
+      "direction": "inbound",
+      "tags": [
+        "Business Partner",
+        "Supplier User",
+        "OData V4"
+      ],
+      "lineOfBusiness": ["Sourcing & Procurement"],
       "extensible": {
         "supported": "no"
       }
