@@ -1,0 +1,555 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Business Partner Relationship (Version 1)",
+    "version": "1.0.0",
+    "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of the any business entity that it is mapped to."
+  },
+  "x-sap-api-type": "ODATAV4",
+  "x-odata-version": "4.01",
+  "x-sap-shortText": "Creates, reads, updates and deletes business partner relationships.",
+  "x-sap-hub-capabilities": {
+    "try-out": false
+  },
+  "servers": [
+    {
+      "url": "https://{hostUrl}/sap/opu/odata4/bids/api_bprelationship/srvd_a2x/bids/api_bprelationship/0001",
+      "description": "Production URL.",
+      "variables": {
+        "hostUrl": {
+          "default": "aaca1993-f806-4e9a-b93a-9eee2d600a8f.abap.eu10.hana.ondemand.com"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Business Partner Relationships",
+      "description": "Operations on Business Partner Relationship header records (supplier users)"
+    },
+    {
+      "name": "Business Partner Linkages",
+      "description": "Operations on individual Business Partner linkages for a supplier user"
+    }
+  ],
+  "paths": {
+    "/BPRelationship": {
+      "get": {
+        "summary": "Retrieves a list of business partner relationships.",
+        "description": "Retrieves a list of business partner relationship records. Supports OData query parameters for filtering by business partner number, email, name, and other fields. Use $expand=_MapBPToSupplierUser to include all Business Partner linkages for each record.",
+        "tags": ["Business Partner Relationships"],
+        "operationId": "listBPRelationships",
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Filter the collection based on a boolean expression (e.g., BusinessPartner eq '9980000910'). See [$filter](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)",
+            "example": "BusinessPartner eq '9980000910'"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Select specific properties to return (e.g., BusinessPartnerUUID,BusinessPartner,Department). See [$select](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+            "example": "BusinessPartnerUUID,BusinessPartner,BusinessPartnerFirstName"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Expand related entities to include Business Partner linkages. See [$expand](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionexpand)",
+            "example": "_MapBPToSupplierUser"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 0 },
+            "description": "Skip the first N records in the result set for pagination. See [$skip](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionskip)",
+            "example": 0
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1 },
+            "description": "Return only the first N records from the result set. See [$top](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptiontop)",
+            "example": 50
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "boolean" },
+            "description": "Include the total count of records in the response. See [$count](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount)",
+            "example": true
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Order items by property values. See [$orderby](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+            "example": "BusinessPartnerUUID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved business partner relationships.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "@odata.count": { "type": "integer", "description": "Total count of records (only if $count=true)" },
+                    "value": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/BPRelationship" }
+                    }
+                  }
+                },
+                "example": {
+                  "value": [
+                    {
+                      "BusinessPartnerUUID": "4e87482e-55a2-1fd1-93a3-09c37d58d48d",
+                      "BusinessPartner": "9980000910",
+                      "BusinessPartnerFirstName": "Sreeja",
+                      "BusinessPartnerLastName": "Annavarapu",
+                      "BusinessPartnerEmail": "sreeja.annavarapu@sap.com",
+                      "LinkedBusinessPartnername": "",
+                      "LogicalSystem": "",
+                      "CreatedAt": "2026-04-07T13:54:19.402114Z",
+                      "CreatedBy": "CB9980000910",
+                      "LastChangedAt": "2026-04-07T13:54:19.402114Z",
+                      "LastChangedBy": "CB9980000910",
+                      "Department": "10300001",
+                      "IsMarkedForArchiving": false,
+                      "UserID": "CB9980000910"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      },
+      "post": {
+        "summary": "Creates a business partner relationship with Business Partner linkages.",
+        "description": "Creates a new supplier user record along with one or more Business Partner linkages in a single deep insert request. The system auto-generates BusinessPartnerUUID and auto-fills FirstName, LastName, Email, Department from business user master data.",
+        "tags": ["Business Partner Relationships"],
+        "operationId": "createBPRelationship",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BPRelationshipCreate" },
+              "example": {
+                "BusinessPartner": "9980000910",
+                "_MapBPToSupplierUser": [
+                  {
+                    "LogicalSystem": "IAS_HTTPS",
+                    "Linkedbusinesspartner": "1029",
+                    "Linkedbusinesspartnername": "ABB"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Business partner relationship created.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BPRelationship" },
+                "example": {
+                  "BusinessPartnerUUID": "fa6fdf75-1293-1fd1-93a4-3a6321970d30",
+                  "BusinessPartner": "9980000910",
+                  "BusinessPartnerFirstName": "Sreeja",
+                  "BusinessPartnerLastName": "Annavarapu",
+                  "BusinessPartnerEmail": "sreeja.annavarapu@sap.com",
+                  "Department": "10300001",
+                  "IsMarkedForArchiving": false,
+                  "UserID": "CB9980000910",
+                  "CreatedAt": "2026-05-11T10:11:50.294342Z",
+                  "CreatedBy": "BPREL_API_USER",
+                  "_MapBPToSupplierUser": [
+                    {
+                      "Businesspartneruuid": "fa6fdf75-1293-1fd1-93a4-3a6321970d30",
+                      "Linkedbusinesspartneruuid": "fa6fdf75-1293-1fd1-93a4-3a6321972d30",
+                      "Businesspartner": "9980000910",
+                      "LogicalSystem": "IAS_HTTPS",
+                      "Linkedbusinesspartner": "1029",
+                      "Linkedbusinesspartnername": "ABB",
+                      "Department": "10300001",
+                      "UserID": "CB9980000910"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/BPRelationship({BusinessPartnerUUID})": {
+      "get": {
+        "summary": "Retrieves a single business partner relationship by UUID.",
+        "description": "Retrieves a specific supplier user record by its UUID. Use $expand=_MapBPToSupplierUser to include all Business Partner linkages. To look up by business partner number instead of UUID, use GET /BPRelationship?$filter=BusinessPartner eq '{bp_number}'.",
+        "tags": ["Business Partner Relationships"],
+        "operationId": "getBPRelationship",
+        "parameters": [
+          { "$ref": "#/components/parameters/BusinessPartnerUUID" },
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Expand related entities.",
+            "example": "_MapBPToSupplierUser"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved business partner relationship.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BPRelationship" }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a supplier user and all Business Partner linkages.",
+        "description": "Deletes the supplier user record and cascades deletion to all associated Business Partner linkages. This operation cannot be undone.",
+        "tags": ["Business Partner Relationships"],
+        "operationId": "deleteBPRelationship",
+        "parameters": [
+          { "$ref": "#/components/parameters/BusinessPartnerUUID" }
+        ],
+        "responses": {
+          "204": { "description": "Business partner relationship deleted successfully." },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/BPRelationship({BusinessPartnerUUID})/_MapBPToSupplierUser": {
+      "get": {
+        "summary": "Retrieves all Business Partner linkages for a supplier user.",
+        "description": "Retrieves all Business Partner linkages associated with the specified supplier user. Use $expand=_BPRelationHdr to include parent header details.",
+        "tags": ["Business Partner Linkages"],
+        "operationId": "listBPLinkages",
+        "parameters": [
+          { "$ref": "#/components/parameters/BusinessPartnerUUID" },
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Expand related entities. Use _BPRelationHdr to include parent header.",
+            "example": "_BPRelationHdr"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved Business Partner linkages.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/MapBPtoSupplierUser" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      },
+      "post": {
+        "summary": "Adds a Business Partner linkage to an existing supplier user.",
+        "description": "Creates a new Business Partner linkage for an existing supplier user. Only the linkage details need to be provided — BusinessPartner is automatically copied from the parent header record.",
+        "tags": ["Business Partner Linkages"],
+        "operationId": "createBPLinkage",
+        "parameters": [
+          { "$ref": "#/components/parameters/BusinessPartnerUUID" }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MapBPtoSupplierUserCreate" },
+              "example": {
+                "LogicalSystem": "IAS_HTTPS",
+                "Linkedbusinesspartner": "2050",
+                "Linkedbusinesspartnername": "Siemens"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Business Partner linkage created.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MapBPtoSupplierUser" },
+                "example": {
+                  "Businesspartneruuid": "4e87482e-55a2-1fd1-93a3-09c37d58d48d",
+                  "Linkedbusinesspartneruuid": "4e87482e-55a2-1fd1-93a4-282e4fe4b48d",
+                  "Businesspartner": "9980000910",
+                  "LogicalSystem": "IAS_HTTPS",
+                  "Linkedbusinesspartner": "2050",
+                  "Linkedbusinesspartnername": "Siemens",
+                  "Department": "10300001",
+                  "UserID": "CB9980000910"
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/MapBPtoSupplierUser(Businesspartneruuid={Businesspartneruuid},Linkedbusinesspartneruuid={Linkedbusinesspartneruuid})": {
+      "patch": {
+        "summary": "Updates a Business Partner linkage.",
+        "description": "Updates editable fields on an existing Business Partner linkage. Only send the fields you want to change. Updatable fields: Linkedbusinesspartnername, LogicalSystem.",
+        "tags": ["Business Partner Linkages"],
+        "operationId": "updateBPLinkage",
+        "parameters": [
+          { "$ref": "#/components/parameters/Businesspartneruuid" },
+          { "$ref": "#/components/parameters/Linkedbusinesspartneruuid" }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MapBPtoSupplierUserUpdate" },
+              "example": {
+                "Linkedbusinesspartnername": "Siemens AG"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Business Partner linkage updated.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/MapBPtoSupplierUser" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a single Business Partner linkage.",
+        "description": "Removes a specific Business Partner linkage from a supplier user. The header record and other linkages remain intact.",
+        "tags": ["Business Partner Linkages"],
+        "operationId": "deleteBPLinkage",
+        "parameters": [
+          { "$ref": "#/components/parameters/Businesspartneruuid" },
+          { "$ref": "#/components/parameters/Linkedbusinesspartneruuid" }
+        ],
+        "responses": {
+          "204": { "description": "Business Partner linkage deleted successfully." },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BPRelationship": {
+        "type": "object",
+        "description": "Represents a supplier user and their associated Business Partner linkages.",
+        "properties": {
+          "BusinessPartnerUUID": { "type": "string", "format": "uuid", "description": "System-generated unique identifier for the supplier user record." },
+          "BusinessPartner": { "type": "string", "maxLength": 10, "description": "Business Partner number of the supplier user. Primary business key for lookup via $filter." },
+          "BusinessPartnerFirstName": { "type": "string", "maxLength": 80, "description": "First name of the supplier user. Auto-populated from business user master data. Read-only." },
+          "BusinessPartnerLastName": { "type": "string", "maxLength": 80, "description": "Last name of the supplier user. Auto-populated from business user master data. Read-only." },
+          "BusinessPartnerEmail": { "type": "string", "maxLength": 241, "description": "Email address of the supplier user. Auto-populated from business user master data. Read-only." },
+          "LinkedBusinessPartnername": { "type": "string", "maxLength": 80, "description": "Name of the primary linked Business Partner at header level." },
+          "LogicalSystem": { "type": "string", "maxLength": 10, "description": "Header-level logical system field. Not used in current implementation — always returned as empty. Active logical system values are at the child linkage level." },
+          "CreatedAt": { "type": "string", "format": "date-time", "description": "Timestamp of when this record was created. Auto-set by system. Read-only." },
+          "CreatedBy": { "type": "string", "maxLength": 12, "description": "User ID that created this record. Auto-set by system. Read-only." },
+          "LastChangedAt": { "type": "string", "format": "date-time", "description": "Timestamp of most recent modification. Auto-updated by system. Read-only." },
+          "LastChangedBy": { "type": "string", "maxLength": 12, "description": "User ID that last modified this record. Auto-updated by system. Read-only." },
+          "Department": { "type": "string", "maxLength": 40, "description": "Department associated with the supplier user. Auto-derived from employee app." },
+          "IsMarkedForArchiving": { "type": "boolean", "description": "Indicates whether the record is flagged for archiving. Read-only." },
+          "UserID": { "type": "string", "maxLength": 12, "description": "System user ID of the supplier user. Auto-populated. Read-only." },
+          "_MapBPToSupplierUser": {
+            "type": "array",
+            "description": "Collection of Business Partner linkages for this supplier user.",
+            "items": { "$ref": "#/components/schemas/MapBPtoSupplierUser" }
+          }
+        }
+      },
+      "BPRelationshipCreate": {
+        "type": "object",
+        "description": "Payload for creating a new business partner relationship.",
+        "required": ["BusinessPartner"],
+        "properties": {
+          "BusinessPartner": { "type": "string", "maxLength": 10, "description": "Business Partner number of the supplier user. Must be a valid business user in the system." },
+          "Department": { "type": "string", "maxLength": 40, "description": "Department for the supplier user. Auto-derived from employee app." },
+          "_MapBPToSupplierUser": {
+            "type": "array",
+            "description": "One or more Business Partner linkages to create with the supplier user.",
+            "items": { "$ref": "#/components/schemas/MapBPtoSupplierUserCreate" }
+          }
+        }
+      },
+      "MapBPtoSupplierUser": {
+        "type": "object",
+        "description": "Represents an individual Business Partner linkage for a supplier user.",
+        "properties": {
+          "Businesspartneruuid": { "type": "string", "format": "uuid", "description": "UUID of the parent supplier user record." },
+          "Linkedbusinesspartneruuid": { "type": "string", "format": "uuid", "description": "System-generated UUID for this specific Business Partner linkage. Used in URL path for PATCH and DELETE." },
+          "Businesspartner": { "type": "string", "maxLength": 10, "description": "Business Partner number. Auto-copied from parent header. Read-only." },
+          "LogicalSystem": { "type": "string", "maxLength": 10, "description": "Logical system identifier for this linkage. Must be a valid value from configured logical systems." },
+          "Businesspartnerfirstname": { "type": "string", "maxLength": 80, "description": "First name from parent. Read-only." },
+          "BusinesspartnerLastName": { "type": "string", "maxLength": 80, "description": "Last name from parent. Read-only." },
+          "Linkedbusinesspartner": { "type": "string", "maxLength": 10, "description": "Business Partner number of the linked entity." },
+          "Linkedbusinesspartnername": { "type": "string", "maxLength": 80, "description": "Name of the linked Business Partner. Editable." },
+          "Department": { "type": "string", "maxLength": 40, "description": "Department inherited from parent." },
+          "UserID": { "type": "string", "maxLength": 12, "description": "User ID inherited from parent." }
+        }
+      },
+      "MapBPtoSupplierUserCreate": {
+        "type": "object",
+        "description": "Payload for creating a new Business Partner linkage.",
+        "required": ["LogicalSystem", "Linkedbusinesspartner", "Linkedbusinesspartnername"],
+        "properties": {
+          "LogicalSystem": { "type": "string", "maxLength": 10, "description": "Logical system identifier. Must be a valid configured logical system." },
+          "Linkedbusinesspartner": { "type": "string", "maxLength": 10, "description": "Business Partner number of the entity to link." },
+          "Linkedbusinesspartnername": { "type": "string", "maxLength": 80, "description": "Name of the linked Business Partner." }
+        }
+      },
+      "MapBPtoSupplierUserUpdate": {
+        "type": "object",
+        "description": "Payload for updating a Business Partner linkage. Only send the fields you want to change.",
+        "properties": {
+          "LogicalSystem": { "type": "string", "maxLength": 10, "description": "Updated logical system identifier." },
+          "Linkedbusinesspartnername": { "type": "string", "maxLength": 80, "description": "Updated name of the linked Business Partner." }
+        }
+      },
+      "error": {
+        "type": "object",
+        "description": "OData V4 error response.",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": { "type": "string", "description": "Machine-readable error code (e.g., /BIDS/CL_MESSAGES/134)." },
+              "message": { "type": "string", "description": "Human-readable error message." },
+              "target": { "type": "string", "description": "The target field of the error." },
+              "details": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": { "type": "string" },
+                    "message": { "type": "string" },
+                    "target": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "BusinessPartnerUUID": {
+        "name": "BusinessPartnerUUID",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "format": "uuid" },
+        "description": "UUID of the supplier user record.",
+        "example": "4e87482e-55a2-1fd1-93a3-09c37d58d48d"
+      },
+      "Businesspartneruuid": {
+        "name": "Businesspartneruuid",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "format": "uuid" },
+        "description": "UUID of the parent supplier user record.",
+        "example": "fa6fdf75-1293-1fd1-93a4-bbd89c728d30"
+      },
+      "Linkedbusinesspartneruuid": {
+        "name": "Linkedbusinesspartneruuid",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string", "format": "uuid" },
+        "description": "UUID of the specific Business Partner linkage.",
+        "example": "fa6fdf75-1293-1fd1-93a4-bbd89c72ad30"
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad Request: The request could not be processed due to invalid input. This includes validation errors such as duplicate records, invalid field values, or missing required fields.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/error" },
+            "example": {
+              "error": {
+                "code": "/BIDS/CL_MESSAGES/134",
+                "message": "Mapping for Supplier User ID 9980000910 already exists.",
+                "target": "BusinessPartner"
+              }
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized: Authentication credentials are missing or invalid. Ensure a valid Communication User is configured.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/error" }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not Found: The requested resource does not exist. Verify the UUID is correct.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/error" }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Basic Authentication using a Communication User configured via SAP BTP ABAP Environment Communication Arrangements."
+      }
+    }
+  },
+  "security": [
+    { "basicAuth": [] }
+  ]
+}

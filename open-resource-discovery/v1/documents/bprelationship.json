@@ -77,10 +77,18 @@
               "type": "open"
             }
           ]
+        },
+        {
+          "type": "openapi-v3",
+          "mediaType": "application/json",
+          "url": "/open-resource-discovery/v1/resource-definitions/API_BPRELATIONSHIP.json",
+          "visibility": "public",
+          "accessStrategies": [
+            {
+              "type": "open"
+            }
+          ]
         }
-      ],
-      "entryPoints": [
-        "https://aaca1993-f806-4e9a-b93a-9eee2d600a8f.abap.eu10.hana.ondemand.com/sap/opu/odata4/bids/api_bprelationship/srvd_a2x/bids/api_bprelationship/0001/"
       ],
       "direction": "inbound",
       "tags": [
@@ -120,10 +128,18 @@
               "type": "open"
             }
           ]
+        },
+        {
+          "type": "openapi-v3",
+          "mediaType": "application/json",
+          "url": "/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.json",
+          "visibility": "public",
+          "accessStrategies": [
+            {
+              "type": "open"
+            }
+          ]
         }
-      ],
-      "entryPoints": [
-        "https://aaca1993-f806-4e9a-b93a-9eee2d600a8f.abap.eu10.hana.ondemand.com/sap/opu/odata4/bids/api_supplierbpassign/srvd_a2x/bids/api_supplierbpassign/0001/"
       ],
       "direction": "inbound",
       "tags": [
