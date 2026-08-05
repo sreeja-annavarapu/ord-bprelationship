@@ -1,0 +1,104 @@
+{
+  "$schema": "https://open-resource-discovery.org/spec-v1/interfaces/Document.schema.json",
+  "openResourceDiscovery": "1.16",
+  "baseUrl": "https://pages.github.tools.sap/SAP-ARIBA-SUPPLIER-QTM/cus.mm.sup.managequotationss1/ord",
+  "perspective": "system-version",
+  "description": "ORD Document for Business Partner Relationship API (Version 1)",
+  "policyLevels": ["sap:core:v1"],
+  "describedSystemType": {
+    "systemNamespace": "sap.bids"
+  },
+  "describedSystemVersion": {
+    "version": "1.0.0"
+  },
+  "products": [
+    {
+      "ordId": "sap.bids:product:QuotationManagement:",
+      "title": "SAP Quotation Management",
+      "vendor": "sap:vendor:SAP:",
+      "shortDescription": "SAP Quotation Management (QTM) - Supplier Quotation and Business Partner Management"
+    }
+  ],
+  "packages": [
+    {
+      "ordId": "sap.bids:package:BPRelationshipV1:v1",
+      "title": "Business Partner Relationship (Version 1)",
+      "shortDescription": "API for managing Business Partner linkages for supplier users - Version 1",
+      "description": "This package contains the Version 1 API that enables external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). Version 1 stores personal data (first name, last name, email) directly in the relationship table.",
+      "version": "1.0.0",
+      "policyLevels": ["sap:core:v1"],
+      "partOfProducts": ["sap.bids:product:QuotationManagement:"],
+      "vendor": "sap:vendor:SAP:",
+      "tags": [
+        "Business Partner",
+        "Supplier",
+        "QTM",
+        "Quotation Management"
+      ],
+      "lineOfBusiness": ["Sourcing & Procurement"]
+    }
+  ],
+  "consumptionBundles": [
+    {
+      "ordId": "sap.bids:consumptionBundle:BPRelationshipV1BasicAuth:v1",
+      "title": "Business Partner Relationship (Version 1) - Basic Authentication",
+      "shortDescription": "Access bundle for Business Partner Relationship API V1 using Basic Authentication",
+      "description": "This Consumption Bundle provides access to the Business Partner Relationship (Version 1) OData V4 API using Basic Authentication via SAP BTP ABAP Environment Communication Arrangements.",
+      "version": "1.0.0",
+      "lastUpdate": "2026-08-05T00:00:00+00:00"
+    }
+  ],
+  "apiResources": [
+    {
+      "ordId": "sap.bids:apiResource:API_BPRELATIONSHIP:v1",
+      "title": "Business Partner Relationship (Version 1)",
+      "shortDescription": "Creates, reads, updates and deletes business partner relationships.",
+      "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of the any business entity that it is mapped to.",
+      "version": "1.0.0",
+      "lastUpdate": "2026-08-05T00:00:00+00:00",
+      "visibility": "public",
+      "releaseStatus": "active",
+      "partOfPackage": "sap.bids:package:BPRelationshipV1:v1",
+      "partOfConsumptionBundles": [
+        {
+          "ordId": "sap.bids:consumptionBundle:BPRelationshipV1BasicAuth:v1"
+        }
+      ],
+      "apiProtocol": "odata-v4",
+      "resourceDefinitions": [
+        {
+          "type": "edmx",
+          "mediaType": "application/xml",
+          "url": "/open-resource-discovery/v1/resource-definitions/API_BPRELATIONSHIP.edmx",
+          "visibility": "public",
+          "accessStrategies": [
+            {
+              "type": "open"
+            }
+          ]
+        },
+        {
+          "type": "openapi-v3",
+          "mediaType": "application/json",
+          "url": "/open-resource-discovery/v1/resource-definitions/API_BPRELATIONSHIP.json",
+          "visibility": "public",
+          "accessStrategies": [
+            {
+              "type": "open"
+            }
+          ]
+        }
+      ],
+      "direction": "inbound",
+      "tags": [
+        "Business Partner",
+        "Supplier User",
+        "OData V4"
+      ],
+      "lineOfBusiness": ["Sourcing & Procurement"],
+      "extensible": {
+        "supported": "no"
+      }
+    }
+  ]
+}
