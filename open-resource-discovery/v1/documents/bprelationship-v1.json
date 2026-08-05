@@ -24,7 +24,7 @@
       "ordId": "sap.bids:package:BPRelationshipV1:v1",
       "title": "Business Partner Relationship (Version 1)",
       "shortDescription": "API for managing Business Partner linkages for supplier users - Version 1",
-      "description": "This package contains the Version 1 API that enables external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM). Version 1 stores personal data (first name, last name, email) directly in the relationship table.",
+      "description": "This package contains the Version 1 API that enables external applications to automate the maintenance of Business Partner (BP) relationships for supplier users in SAP Quotation Management (QTM).",
       "version": "1.0.0",
       "policyLevels": ["sap:core:v1"],
       "partOfProducts": ["sap.bids:product:QuotationManagement:"],
