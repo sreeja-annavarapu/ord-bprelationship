@@ -17,7 +17,7 @@
       "description": "Production URL.",
       "variables": {
         "hostUrl": {
-          "default": "aaca1993-f806-4e9a-b93a-9eee2d600a8f.abap.eu10.hana.ondemand.com"
+          "default": "e1b518a2-8e62-46a5-a221-29c36589a1e0.abap.eu10.hana.ondemand.com"
         }
       }
     }
