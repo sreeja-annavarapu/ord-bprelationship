@@ -4,7 +4,9 @@
   "baseUrl": "https://sreeja-annavarapu.github.io/ord-bprelationship",
   "perspective": "system-version",
   "description": "ORD Document for Business Partner Relationship API (Version 1)",
-  "policyLevels": ["sap:core:v1"],
+  "policyLevels": [
+    "sap:core:v1"
+  ],
   "describedSystemType": {
     "systemNamespace": "sap.bids"
   },
@@ -16,7 +18,7 @@
       "ordId": "sap:product:SAPAribaDirectMaterialsSourcing:",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "vendor": "sap:vendor:SAP:",
-      "shortDescription": "Direct materials sourcing solution for automotive and industrial manufacturing integrated with SAP S/4HANA"
+      "shortDescription": "Enables direct materials sourcing for the automotive and industrial manufacturing industries, deployed through SAP S/4HANA"
     }
   ],
   "packages": [
@@ -24,10 +26,14 @@
       "ordId": "sap.bids:package:SAPAribaDirectMaterialsSourcing:v1",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "shortDescription": "APIs for SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing",
-      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner relationships for supplier users in SAP Ariba Direct Materials Sourcing.",
+      "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner relationships for supplier users in SAP Ariba Direct Materials Sourcing solution for Automotive and Industrial Manufacturing in SAP S/4HANA.",
       "version": "1.0.0",
-      "policyLevels": ["sap:core:v1"],
-      "partOfProducts": ["sap:product:SAPAribaDirectMaterialsSourcing:"],
+      "policyLevels": [
+        "sap:core:v1"
+      ],
+      "partOfProducts": [
+        "sap:product:SAPAribaDirectMaterialsSourcing:"
+      ],
       "vendor": "sap:vendor:SAP:",
       "tags": [
         "Business Partner",
@@ -35,7 +41,9 @@
         "Direct Materials Sourcing",
         "Quotation Management"
       ],
-      "lineOfBusiness": ["Sourcing & Procurement"]
+      "lineOfBusiness": [
+        "Sourcing & Procurement"
+      ]
     }
   ],
   "consumptionBundles": [
@@ -95,7 +103,9 @@
         "Supplier User",
         "OData V4"
       ],
-      "lineOfBusiness": ["Sourcing & Procurement"],
+      "lineOfBusiness": [
+        "Sourcing & Procurement"
+      ],
       "extensible": {
         "supported": "no"
       }
