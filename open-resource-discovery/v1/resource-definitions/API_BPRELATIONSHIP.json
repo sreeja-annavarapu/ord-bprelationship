@@ -9,7 +9,7 @@
   "x-odata-version": "4.01",
   "x-sap-shortText": "Creates, reads, updates and deletes business partner relationships.",
   "x-sap-hub-capabilities": {
-    "try-out": false
+    "try-out": true
   },
   "servers": [
     {
