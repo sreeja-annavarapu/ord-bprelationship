@@ -7,15 +7,11 @@
   "policyLevels": [
     "sap:core:v1"
   ],
-  "describedSystemType": {
-    "systemNamespace": "sap.bids"
-  },
   "describedSystemVersion": {
-    "version": "2.0.0"
+    "version": "1.0.0"
   },
   "products": [
     {
-      "ordId": "sap:product:SAP_Ariba_DMS_S4HANA:",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "vendor": "sap:vendor:SAP:",
       "shortDescription": "Enables direct materials sourcing for the automotive and industrial manufacturing industries, deployed through SAP S/4HANA"
@@ -33,7 +29,7 @@
       ],
       "partOfProducts": [
         "sap:product:SAPAriba:",
-        "sap:product:SAP_Ariba_DMS_S4HANA:"
+        "sap:product:SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA:"
       ],
       "vendor": "sap:vendor:SAP:"
     }
