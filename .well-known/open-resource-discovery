@@ -4,7 +4,7 @@
   "openResourceDiscoveryV1": {
     "documents": [
       {
-        "url": "open-resource-discovery/v1/documents/bprelationship-v1.json",
+        "url": "/open-resource-discovery/v1/documents/bprelationship-v1.json",
         "perspective": "system-version",
         "accessStrategies": [
           {
@@ -13,7 +13,7 @@
         ]
       },
       {
-        "url": "open-resource-discovery/v1/documents/bprelationship-v2.json",
+        "url": "/open-resource-discovery/v1/documents/bprelationship-v2.json",
         "perspective": "system-version",
         "accessStrategies": [
           {
