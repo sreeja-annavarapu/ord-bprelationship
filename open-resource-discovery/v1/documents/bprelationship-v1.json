@@ -1,7 +1,6 @@
 {
   "$schema": "https://open-resource-discovery.org/spec-v1/interfaces/Document.schema.json",
   "openResourceDiscovery": "1.16",
-  "baseUrl": "https://sreeja-annavarapu.github.io/ord-bprelationship",
   "perspective": "system-version",
   "description": "ORD Document for Business Partner Relationship API (Version 1)",
   "policyLevels": [
@@ -15,7 +14,7 @@
   },
   "products": [
     {
-      "ordId": "sap:product:SAPAribaDirectMaterialsSourcing:",
+      "ordId": "sap.bids:product:SAPAribaDirectMaterialsSourcingForAutomotiveAndIndustrialManufacturingInSAPS/4HANA:",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "vendor": "sap:vendor:SAP:",
       "shortDescription": "Enables direct materials sourcing for the automotive and industrial manufacturing industries, deployed through SAP S/4HANA"
@@ -23,7 +22,7 @@
   ],
   "packages": [
     {
-      "ordId": "sap.bids:package:SAPAribaDirectMaterialsSourcing:v1",
+      "ordId": "sap.bids:package:SAPAribaDirectMaterialsSourcingForAutomotiveAndIndustrialManufacturingInSAPS/4HANA:v1",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "shortDescription": "APIs for SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing",
       "description": "This package contains APIs that enable external applications to automate the maintenance of Business Partner relationships for supplier users in SAP Ariba Direct Materials Sourcing solution for Automotive and Industrial Manufacturing in SAP S/4HANA.",
@@ -32,18 +31,9 @@
         "sap:core:v1"
       ],
       "partOfProducts": [
-        "sap:product:SAPAribaDirectMaterialsSourcing:"
+        "sap.bids:product:SAPAribaDirectMaterialsSourcingForAutomotiveAndIndustrialManufacturingInSAPS/4HANA:"
       ],
-      "vendor": "sap:vendor:SAP:",
-      "tags": [
-        "Business Partner",
-        "Supplier",
-        "Direct Materials Sourcing",
-        "Quotation Management"
-      ],
-      "lineOfBusiness": [
-        "Sourcing & Procurement"
-      ]
+      "vendor": "sap:vendor:SAP:"
     }
   ],
   "consumptionBundles": [
@@ -66,7 +56,7 @@
       "lastUpdate": "2026-08-07T00:00:00+00:00",
       "visibility": "public",
       "releaseStatus": "active",
-      "partOfPackage": "sap.bids:package:SAPAribaDirectMaterialsSourcing:v1",
+      "partOfPackage": "sap.bids:package:SAPAribaDirectMaterialsSourcingForAutomotiveAndIndustrialManufacturingInSAPS/4HANA:v1",
       "partOfConsumptionBundles": [
         {
           "ordId": "sap.bids:consumptionBundle:DirectMaterialsSourcingBasicAuth:v1"
@@ -98,14 +88,6 @@
         }
       ],
       "direction": "inbound",
-      "tags": [
-        "Business Partner",
-        "Supplier User",
-        "OData V4"
-      ],
-      "lineOfBusiness": [
-        "Sourcing & Procurement"
-      ],
       "extensible": {
         "supported": "no"
       }
