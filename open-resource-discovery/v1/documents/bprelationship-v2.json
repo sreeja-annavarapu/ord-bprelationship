@@ -62,14 +62,14 @@
         {
           "type": "edmx",
           "mediaType": "application/xml",
-          "url": "/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.edmx",
+          "url": "/ord-bprelationship/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.edmx",
           "visibility": "public",
           "accessStrategies": [{ "type": "open" }]
         },
         {
           "type": "openapi-v3",
           "mediaType": "application/json",
-          "url": "/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.json",
+          "url": "/ord-bprelationship/open-resource-discovery/v1/resource-definitions/API_SUPPLIERBPASSIGN.json",
           "visibility": "public",
           "accessStrategies": [{ "type": "open" }]
         }
