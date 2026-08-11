@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Business Partner Relationship (Version 2)",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "description": "This service enables you to create, read, update, and delete business partner relationships for a specific supplier user ID. A business partner relationship maps the included supplier user ID to additional business entities, enabling the user ID to act on behalf of any business entity that it is mapped to."
   },
   "x-sap-api-type": "ODATAV4",
