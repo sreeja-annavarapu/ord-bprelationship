@@ -15,12 +15,6 @@
   },
   "products": [
     {
-      "ordId": "sap:product:SAPAriba:",
-      "title": "SAP Ariba",
-      "vendor": "sap:vendor:SAP:",
-      "shortDescription": "SAP Ariba procurement and supply chain solutions"
-    },
-    {
       "ordId": "sap:product:SAP_Ariba_DMS_S4HANA:",
       "title": "SAP Ariba Direct Materials Sourcing for Automotive and Industrial Manufacturing in SAP S/4HANA",
       "vendor": "sap:vendor:SAP:",
@@ -38,8 +32,7 @@
         "sap:core:v1"
       ],
       "partOfProducts": [
-        "sap:product:SAPAriba:",
-        "sap:product:SAP_Ariba_DMS_S4HANA:"
+        "sap:product:SAPAriba:"
       ],
       "vendor": "sap:vendor:SAP:"
     }
