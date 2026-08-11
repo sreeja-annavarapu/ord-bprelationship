@@ -32,7 +32,8 @@
         "sap:core:v1"
       ],
       "partOfProducts": [
-        "sap:product:SAPAriba:"
+        "sap:product:SAPAriba:",
+        "sap:product:SAP_Ariba_DMS_S4HANA:"
       ],
       "vendor": "sap:vendor:SAP:"
     }
